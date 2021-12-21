@@ -1,0 +1,29 @@
+create table person(
+	id bigint UNIQUE NOT NULL,
+	firstname VARCHAR ( 50 ),
+	lastname VARCHAR ( 50 ),
+	cin VARCHAR ( 50 ),
+	email VARCHAR ( 50 ),
+	address VARCHAR ( 50 ),
+	country_type VARCHAR ( 50 ),
+	fund_number bigint,
+	assurance_type VARCHAR ( 50 )
+);
+
+create table student(
+	scholarship float,
+	person_id bigint UNIQUE NOT NULL,
+	FOREIGN KEY(person_id) REFERENCES person(id)
+);
+
+create table employee(
+	salary float,
+	person_id bigint UNIQUE NOT NULL,
+	FOREIGN KEY(person_id) REFERENCES person(id)
+);
+
+create table coach(
+	class_type VARCHAR ( 50 ),
+	person_id bigint UNIQUE NOT NULL,
+	FOREIGN KEY(person_id) REFERENCES person(id)
+);
